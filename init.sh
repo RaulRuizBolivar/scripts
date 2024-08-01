@@ -10,11 +10,12 @@ sudo apt clean &&
 sudo apt autoclean &&
 sudo apt autoremove -y &&
 echo "Instalando paquetes..." &&
-sudo apt install screenfetch curl git zsh neofetch snapd flatpak &&
+sudo apt install screenfetch curl git zsh neofetch snapd flatpak gnome-boxes tilix &&
 sudo apt install gnome-software &&
 echo "Configurando flatpak" &&
 sudo apt install gnome-software-plugin-flatpak &&
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo &&
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo &&
+sudo flatpak install bitwarden ;
 sudo snap install code --classic ;
 sudo snap install fragments postman bitwarden ;
 echo "Configurando git" &&
@@ -24,9 +25,9 @@ git config --global user.email "raul.ruiz.bolivar@gmail.com" &&
 echo "Instalando nvm" &&
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash &&
 echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm' >> ~/.bashrc &&
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm' >> ~/.bashrc ;
 echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm' >> ~/.zshrc &&
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm' >> ~/.zshrc ;
 cd &&
 source ~/.bashrc ;
 echo "Instalando node version LTS" &&
@@ -40,5 +41,5 @@ npm install -g @angular/cli ;
 echo "Instalando ohmyzsh" &&
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
 echo "Terminado" &&
-sudo shutdown now
+sudo shutdown now -r
 
